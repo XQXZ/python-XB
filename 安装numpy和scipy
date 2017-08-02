@@ -1,0 +1,12 @@
+1.在www.lfd.uci.edu/%7Egohlke/pythonlibs/上找到相应的whl文件
+
+
+2.将下载完成的文件剪切到python27/Scripts下（或者Python36\Scripts）
+
+3.编写脚本1.bat ：pip install numpy-1.13.1+mkl-cp36-cp36m-win_amd64.whl
+       pause
+
+                 2.bat：pip install scipy-0.19.1-cp36-cp36m-win_amd64.whl
+     pause
+
+4.依次双击运行
