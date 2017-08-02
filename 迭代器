@@ -10,7 +10,7 @@
 
 class  TestIterator:
     value = 0
-    def __next__(self):
+    def next(self):
         self.value += 1
         if self.value > 10:
             raise StopIteration
