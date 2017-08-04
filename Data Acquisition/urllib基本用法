@@ -1,0 +1,64 @@
+#urllib的request模块可以非常方便地抓取URL内容，
+#也就是发送一个GET请求到指定的页面，然后返回HTTP的响应
+
+Get
+
+	使用步骤：
+	1.导入urllib库的request模块
+	   from urllib import request
+	2.请求URL
+	   resp = request.urlopen('http://wwww.baidu.com')
+	3.使用响应对象输出数据
+	   print(resp.read().decode("utf-8"))
+
+	 模拟真实的浏览器
+	 1.携带User-Agent头(如果我们要想模拟浏览器发送GET请求，就需要使用
+	 Request对象，通过往Request对象添加HTTP头，我们就可以把请求伪装成浏
+	 览器。)
+	    req = request.Request(url)
+	    req.add_header(key, value)
+	    resp = request.urlopen(req)
+	    print(resp.read().decode("utf-8"))
+	  ex:
+
+	from urllib import request
+	req = request.Request('http://www.douban.com/')
+	req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25')
+	with request.urlopen(req) as f:
+	    print('Status:', f.status, f.reason)
+	    for k, v in f.getheaders():
+	        print('%s: %s' % (k, v))
+	    print('Data:', f.read().decode('utf-8'))
+
+Post(ex:请求表单数据)
+	使用步骤：
+	1.导入urllib库的parse模块
+	   from urllib import parse
+
+	2.请求URL
+	   req = request.Request("url")  #一定要双引号不然编码报错
+
+	3.使用urlencode生成post数据
+	   postData = paese.urlencode([
+	   		(key1,val1),
+	   		(key2,val2),
+	   		(keyn,valn)
+	   	])
+
+	4.模拟真实的浏览器(添加Origin和User-Agent)
+	   req.add_header(key, value)
+
+	3.使用postData发送post请求
+       resp = request.urlopen(req, data = postData.encode('utf-8'))
+
+    (4.得到请求状态
+       resp.status
+    5.得到服务器类型
+       resp.reason)
+
+    6. 使用响应对象输出数据
+       print(resp.read().decode("utf-8"))
+
+注：若想不被认为是爬虫需要带着Origin和User-Agent信息
+获取信息：F12 --> network --> dos --> 点击SearchResult --> 复制其内的文本
+--> 找到Origin和User-Agent --> from data 下为postData内的内容
