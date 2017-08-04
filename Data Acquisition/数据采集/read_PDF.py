@@ -5,10 +5,11 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.pdfparser import PDFParser, PDFDocument
 from pdfminer.layout import LAParams 
 from pdfminer.converter import PDFPageAggregator
-
+#从网页上读取PDF
+#from urllib.request import urlopen
 #获取文档对象
 fp = open("naacl06-shinyama.pdf", "rb")#以二进制读模式打开
-
+#fp = urlopen("url") 
 #创建一个与文档关联的解释器
 parser = PDFParser(fp)
 
