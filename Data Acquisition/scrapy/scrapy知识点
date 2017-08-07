@@ -1,0 +1,24 @@
+scrapy框架是一款基于python的爬虫框架
+
+1.创建工程
+ 命令行切换到存取目录
+ scrapy startproject 工程名
+ 切换到工程目录 cd 工程名
+ scrapy genspider 爬虫文件名 爬取网站名
+ 在文件夹中打开此文件
+ 编写
+ 终端输入 scrapy crawl 爬虫文件名
+
+ 2.命令行工具
+ http://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/commands.html
+
+ 3.提取Item：Selectors选择器
+
+ 基本方法：
+	xpath(): 传入xpath表达式，返回该表达式所对应的所有节点的selector list列表 。
+	css(): 传入CSS表达式，返回该表达式所对应的所有节点的selector list列表。
+	extract(): 序列化该节点为unicode字符串并返回list。
+	re(): 根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。
+  
+  
+  附安装：http://blog.csdn.net/acher66/article/details/76842262
