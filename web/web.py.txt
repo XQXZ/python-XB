@@ -1,0 +1,37 @@
+轻量级的Python Web框架，简单且功能强大
+一、安装
+开始用python3.6发现有很多问题，后来改用python2.7安装
+首先安装依赖库
+	pip install db
+	pip install utils
+web.py下载地址：http://webpy.org
+解压到文件夹中，命令行目录切换到刚才解压的文件夹
+执行python setup.py install
+（若同时安装了python2和3 则py -2 setup.py install）
+二、URL处理
+ 1.匹配URL的正则表达式
+ urls = (
+  '匹配URL的正则表达式(圆括号表示捕捉对应的数据以便后面使用)', '接受请求的类名称'
+)
+ 2、创建一个列举url的application
+ app = web.application(urls, globals()) 
+三、编写类
+ class index:
+ 	def GET(self):
+ 		query = web.input()
+ 		return query
+
+注：GET与POST的区别：GET用于请求网页文本，POST经常被用在提交form。
+
+	启动应用
+	 if __name__ == "__main__":
+	    app.run()
+
+四、响应处理
+1、模块文件读取
+定义模板文件夹：render = web.template.render('templates/')  #写在开头
+引用模板文件夹中同名的文件 return render.xxx()
+2、数据库获取数据
+待续
+3、URL跳转
+待续
